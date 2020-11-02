@@ -38,4 +38,4 @@ jobs:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
         password: ${{ secrets.PASSWORD }}
-        script: mv public_html_last/.env public_html/.env && cd public_html && composer install && npm install && php artisan migrate
+        script: mv public_html_last/.env public_html/.env && cd public_html && composer install && npm install && npm run dev && php artisan migrate
