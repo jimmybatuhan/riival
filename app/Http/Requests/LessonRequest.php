@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CourseRequest extends FormRequest
+class LessonRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -14,9 +14,10 @@ class CourseRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required|bail|string|unique:courses,title',
+            'title' => 'required|bail|string',
             'description' => 'required|bail|string',
-            'coach_profile_id' => 'required|int|exists:coach_profiles,id'
+            'duration' => 'required|bail|numeric',
+            'course_id' => 'required|int|exists:courses,id',
         ];
     }
 }

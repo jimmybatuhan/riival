@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CourseRequest;
 use App\Models\CoachProfile;
+use App\Models\Course;
 use App\Models\Game;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class CourseController extends Controller
@@ -22,32 +25,31 @@ class CourseController extends Controller
         return response()->json($coaches->courses);
     }
 
-    public function store(Request $request)
+    public function store(CourseRequest $request, CoachProfile $coach_profile): JsonResponse
     {
-        //
+        $course = Course::create([
+            'title' => $request->title,
+            'description' => $request->description,
+            'language' => $request->language,
+        ]);
+
+        $coach_profile->courses()->attch($course);
+
+        return response()->json();
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function update(CourseRequest $request, Course $course): JsonResponse
     {
-        //
+        $course->update($request->input());
+
+        return response()->json();
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+    public function destroy(Course $course): JsonResponse
     {
-        //
+        $course->delete();
+
+        return response()->json();
     }
 
     public function create()
