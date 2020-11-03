@@ -31,7 +31,7 @@ class LessonController extends Controller
         return response()->json();
     }
 
-    public function update(LessonRequest $request,  Lesson $lesson): JsonResponse
+    public function update(LessonRequest $request, Lesson $lesson): JsonResponse
     {
         $lesson->update($request->input());
 
@@ -56,7 +56,7 @@ class LessonController extends Controller
 
     public function edit(Lesson $lesson)
     {
-
+        //
     }
 
     public function create()

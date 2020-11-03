@@ -8,6 +8,8 @@ use Illuminate\Foundation\Auth\ResetsPasswords;
 
 class ResetPasswordController extends Controller
 {
+    use ResetsPasswords;
+
     /*
     |--------------------------------------------------------------------------
     | Password Reset Controller
@@ -19,7 +21,7 @@ class ResetPasswordController extends Controller
     |
     */
 
-    use ResetsPasswords;
+
 
     /**
      * Where to redirect users after resetting their password.
