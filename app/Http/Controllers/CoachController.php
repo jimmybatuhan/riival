@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CoachRequest;
+use App\Http\Requests\TagRequest;
 use App\Models\Coach;
 use App\Models\CoachProfile;
 use App\Models\Game;
@@ -21,21 +22,6 @@ class CoachController extends Controller
                 ->orWhere("last_name", "LIKE", "%${$keyword}%");
         });
         return response()->json($coaches);
-    }
-
-    public function create()
-    {
-        //
-    }
-
-    public function show(Coach $coach)
-    {
-        //
-    }
-
-    public function edit(Coach $coach)
-    {
-        //
     }
 
     public function store(CoachRequest $request): JsonResponse
@@ -80,5 +66,31 @@ class CoachController extends Controller
         $coach->gameProfiles->delete();
 
         return response()->json();
+    }
+
+    public function updateTags(TagRequest $request, Coach $coach): JsonResponse
+    {
+        $coach_profile = $coach->gameProfile($request->game_id);
+
+        $coach_profile->tags()->detach($coach_profile->tags);
+
+        $coach_profile->tags()->attach($request->tags);
+
+        return response()->json();
+    }
+
+    public function create()
+    {
+        //
+    }
+
+    public function show(Coach $coach)
+    {
+        //
+    }
+
+    public function edit(Coach $coach)
+    {
+        //
     }
 }
