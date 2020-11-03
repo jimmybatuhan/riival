@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\CoachController;
+use App\Http\Controllers\CourseController;
+use App\Http\Controllers\GameController;
+use App\Http\Controllers\LessonController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +25,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resources([
+    'coaches' => CoachController::class,
+    'courses' => CourseController::class,
+    'lessons' => LessonController::class,
+    'game' => GameController::class,
+]);
