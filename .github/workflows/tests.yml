@@ -11,6 +11,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
     - name: Copy .env
       run: php -r "file_exists('.env') || copy('.env.example', '.env');"
     - name: Install Dependencies
@@ -23,8 +25,15 @@ jobs:
       run: |
         mkdir -p database
         touch database/database.sqlite
-    - name: Run PHPCodeSniffer
-      run: composer global require "squizlabs/php_codesniffer=*" && phpcs
+    - name: Install PHP_CodeSniffer
+        run: |
+          curl -OL https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar
+          php phpcs.phar --version
+      - uses: tinovyatkin/action-php-codesniffer@v1
+        with:
+          files: "**.php"
+          phpcs_path: php phpcs.phar
+          standard: phpcs.xml
     - name: Migrate Database and Execute tests (Unit and Feature tests) via PHPUnit
       env:
         DB_CONNECTION: sqlite
