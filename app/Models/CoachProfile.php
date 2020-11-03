@@ -11,9 +11,12 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class CoachProfile extends Model
 {
+    use SoftDeletes;
+
     protected $guarded = ['id', 'created_at', 'update_at', 'deleted_at'];
 
     public function game(): BelongsTo
