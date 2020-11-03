@@ -24,7 +24,7 @@ jobs:
         mkdir -p database
         touch database/database.sqlite
     - name: Run PHPCodeSniffer
-      run: phpcs
+      run: composer global require "squizlabs/php_codesniffer=*" && phpcs
     - name: Migrate Database and Execute tests (Unit and Feature tests) via PHPUnit
       env:
         DB_CONNECTION: sqlite
