@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CourseRequest;
+use App\Http\Requests\TagRequest;
 use App\Models\CoachProfile;
 use App\Models\Course;
 use App\Models\Game;
@@ -48,6 +49,15 @@ class CourseController extends Controller
     public function destroy(Course $course): JsonResponse
     {
         $course->delete();
+
+        return response()->json();
+    }
+
+    public function updateTags(TagRequest $request, Course $course): JsonResponse
+    {
+        $course->tags()->detach($course->tags);
+
+        $course->tags()->attach($request->tags);
 
         return response()->json();
     }

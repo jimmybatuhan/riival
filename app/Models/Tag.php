@@ -12,7 +12,7 @@ class Tag extends Model
 {
     public function coaches(): MorphToMany
     {
-        return $this->morphedByMany(Coach::class, 'taggable');
+        return $this->morphedByMany(CoachProfile::class, 'taggable');
     }
 
     public function courses(): MorphToMany

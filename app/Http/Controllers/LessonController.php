@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\LessonRequest;
+use App\Http\Requests\TagRequest;
 use App\Models\Course;
 use App\Models\Lesson;
 use Illuminate\Http\JsonResponse;
@@ -40,6 +41,15 @@ class LessonController extends Controller
     public function destroy(Lesson $lesson): JsonResponse
     {
         $lesson->delete();
+
+        return response()->json();
+    }
+
+    public function updateTags(TagRequest $request, Lesson $lesson): JsonResponse
+    {
+        $lesson->tags()->detach($lesson->tags);
+
+        $lesson->tags()->attach($request->tags);
 
         return response()->json();
     }
