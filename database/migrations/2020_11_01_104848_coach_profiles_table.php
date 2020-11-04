@@ -14,6 +14,7 @@ class CoachProfilesTable extends Migration
             $table->foreignId('game_id')->constrained('games');
             $table->string('in_game_name');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
