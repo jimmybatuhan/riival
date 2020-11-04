@@ -13,7 +13,7 @@ class GameController extends Controller
     {
         $keyword = $request->keyword;
 
-        $games = Game::when($keyword, function($query) use ($keyword) {
+        $games = Game::when($keyword, function ($query) use ($keyword) {
             return $query->where("name", "LIKE", "%${$keyword}%");
         });
 
