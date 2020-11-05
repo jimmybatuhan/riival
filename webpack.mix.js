@@ -30,6 +30,7 @@ mix.styles([
 ], 'public/css/theme.css');
 
 mix.copyDirectory('resources/theme/js/', 'public/theme/js');
+mix.copyDirectory('resources/theme/img/', 'public/img');
 mix.copyDirectory('resources/theme/plugins/', 'public/theme/plugins');
 mix.copyDirectory('resources/theme/plugins/fontawesome/webfonts', 'public/webfonts');
 
