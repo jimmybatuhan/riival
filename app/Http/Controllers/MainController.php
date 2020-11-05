@@ -7,7 +7,7 @@ use Illuminate\View\View;
 
 class MainController extends Controller
 {
-    public function index (Request $request): View
+    public function index(Request $request): View
     {
         return view('home');
     }
