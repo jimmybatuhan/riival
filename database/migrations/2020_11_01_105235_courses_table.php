@@ -15,6 +15,7 @@ class CoursesTable extends Migration
             $table->longText('description');
             $table->string('language');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

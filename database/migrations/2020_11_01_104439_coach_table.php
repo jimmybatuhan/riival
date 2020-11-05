@@ -15,6 +15,7 @@ class CoachTable extends Migration
             $table->string('language');
             $table->string('country');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

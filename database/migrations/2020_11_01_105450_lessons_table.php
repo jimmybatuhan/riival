@@ -16,6 +16,7 @@ class LessonsTable extends Migration
             $table->longText('video_link');
             $table->string('duration');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
