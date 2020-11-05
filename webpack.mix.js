@@ -34,10 +34,11 @@ mix.copyDirectory('resources/theme/img/', 'public/img');
 mix.copyDirectory('resources/theme/plugins/', 'public/theme/plugins');
 mix.copyDirectory('resources/theme/plugins/fontawesome/webfonts', 'public/webfonts');
 
-mix.js('resources/theme/js/script.js', 'public/js/theme.js');
+mix.js('resources/theme/js/script.js', 'public/js/theme.js').sourceMaps(false);
  /*
  | End of the theme assets compilation
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css');
+mix.sass('resources/sass/app.scss', 'public/css');
+
+mix.js('resources/js/app.js', 'public/js').sourceMaps(false);
