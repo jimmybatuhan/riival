@@ -55,7 +55,10 @@ class RegisterController extends Controller
             'first_name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => ['required', 'string', 'min:8'],
+            'read_and_agreed_terms_and_conditions' => ['required'],
+        ], [
+            'read_and_agreed_terms_and_conditions.required' => 'You must agree to our terms and conditions',
         ]);
     }
 
