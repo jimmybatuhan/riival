@@ -22,11 +22,11 @@ Auth::routes();
 Route::group([
     'middleware' => ['auth'],
 ], function () {
-    Route::get('/', 'MainController@index');
     Route::resources([
         'coaches' => CoachController::class,
         'courses' => CourseController::class,
         'lessons' => LessonController::class,
         'game' => GameController::class,
-    ]);
+        ]);
+    Route::get('/{any}', 'MainController@index')->where('any', '.*');
 });
