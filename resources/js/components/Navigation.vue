@@ -40,7 +40,10 @@
                                     <router-link to="/settings">Settings</router-link>
                                 </li>
                                 <li>
-                                    <a href="change-password">Log Out</a>
+                                    <form method="POST" action="/logout">
+                                        <input type="hidden" name="_token" v-model="$csrf" />
+                                        <button type="submit" class="btn btn-link">Log Out</button>
+                                    </form>
                                 </li>
                             </ul>
                         </li>
