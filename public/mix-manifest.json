@@ -1,6 +1,7 @@
 {
-    "/js/build.js": "/js/build.js",
+    "/js/app.js": "/js/app.js",
     "/js/theme.js": "/js/theme.js",
+    "/theme/js/js.js": "/theme/js/js.js",
     "/css/app.css": "/css/app.css",
     "/css/theme.css": "/css/theme.css"
 }
