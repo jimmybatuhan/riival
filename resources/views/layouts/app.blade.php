@@ -32,9 +32,5 @@
     <script src="{{ asset('theme/plugins/theia-sticky-sidebar/ResizeSensor.js') }}"></script>
     <script src="{{ asset('theme/plugins/theia-sticky-sidebar/theia-sticky-sidebar.js') }}"></script>
     <script src="{{ mix('js/theme.js') }}"></script>
-<<<<<<< HEAD
     <script src="{{ mix('/js/build.js') }}"></script>
-=======
-    <script src="{{ mix('/js/app.js') }}"></script>
->>>>>>> 4ba5b53a8991a982b1cbf359ccce5a07e2d85fba
 </html>
