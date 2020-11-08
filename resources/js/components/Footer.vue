@@ -95,12 +95,6 @@
     </footer>
 </template>
 
-<style scoped>
-footer {
-    position: absolute;
-    bottom:0;
-}
-</style>
 <script>
     export default {
         name: "Footer",

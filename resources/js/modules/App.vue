@@ -2,7 +2,10 @@
     <div>
         <navigation />
         <div  class="main-wrapper">
-            <router-view></router-view>
+            <breadcrumbs />
+            <div class="content">
+                <router-view></router-view>
+            </div>
             <footer-template />
         </div>
     </div>
@@ -12,6 +15,7 @@
 
 import Navigation from "src/components/Navigation";
 import FooterTemplate from "src/components/Footer";
+import Breadcrumbs from "src/components/BreadCrumbs";
 
 export default {
     name: "App",
@@ -19,6 +23,7 @@ export default {
     components: {
         Navigation,
         FooterTemplate,
+        Breadcrumbs,
     },
 
     mounted () {

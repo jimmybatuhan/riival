@@ -16,6 +16,8 @@ Vue.use(Vuex);
 
 Vue.mixin(global);
 
+Vue.prototype.$csrf = document.head.querySelector('meta[name="csrf-token"]').content;
+
 const app = new Vue({
     router,
     el: '#app',
