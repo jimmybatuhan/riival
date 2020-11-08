@@ -1,4 +1,5 @@
 const mix = require('laravel-mix');
+const path = require("path");
 
 /*
  |--------------------------------------------------------------------------
@@ -10,6 +11,15 @@ const mix = require('laravel-mix');
  | file for the application as well as bundling up all the JS files.
  |
  */
+
+mix.webpackConfig({
+    resolve: {
+        alias: {
+            src: path.join(__dirname, "resources/js/"),
+            node_modules: path.join(__dirname, "node_modules"),
+        },
+    },
+});
 
  /*
  |--------------------------------------------------------------------------
@@ -29,15 +39,19 @@ mix.styles([
     'resources/theme/css/style.css',
 ], 'public/css/theme.css');
 
-mix.copyDirectory('resources/theme/js/', 'public/theme/js');
-mix.copyDirectory('resources/theme/img/', 'public/img');
-mix.copyDirectory('resources/theme/plugins/', 'public/theme/plugins');
-mix.copyDirectory('resources/theme/plugins/fontawesome/webfonts', 'public/webfonts');
+mix.js([
+    'resources/theme/js/jquery.min.js',
+    'resources/theme/js/popper.min.js',
+    'resources/theme/js/bootstrap.min.js',
+    'resources/theme/plugins/select2/js/select2.min.js',
+    'resources/theme/js/owl.carousel.min.js',
+    'resources/theme/plugins/theia-sticky-sidebar/ResizeSensor.js',
+    'resources/theme/plugins/theia-sticky-sidebar/theia-sticky-sidebar.js'
+], 'public/js/theme.js');
 
-mix.js('resources/theme/js/script.js', 'public/js/theme.js');
  /*
  | End of the theme assets compilation
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css');
+mix.js('resources/js/app.js', 'public/js');
+mix.sass('resources/sass/app.scss', 'public/css');

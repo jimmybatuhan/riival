@@ -9,6 +9,6 @@ class MainController extends Controller
 {
     public function index(Request $request): View
     {
-        return view('home');
+        return view('vue.app');
     }
 }
