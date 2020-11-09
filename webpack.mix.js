@@ -21,7 +21,7 @@ mix.webpackConfig({
     },
 });
 
- /*
+/*
  |--------------------------------------------------------------------------
  | ThemeForest Mentoring E-Learning Theme Section
  |--------------------------------------------------------------------------
@@ -42,7 +42,7 @@ mix.js([
     'resources/theme/plugins/select2/js/select2.min.js',
 ], 'public/js/theme.js');
 
- /*
+/*
  | End of the theme assets compilation
  */
 
