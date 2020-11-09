@@ -19,4 +19,4 @@ jobs:
       run: npm install
     - name: Run ESLinting
       run: |
-        ./node_modules/.bin/eslint --ignore-path .gitignore .
+        ./node_modules/.bin/eslint --ignore-path .eslintignore .
