@@ -24,10 +24,7 @@
                         </div>
                         <div class="form-group">
                             <label class="form-control-label">Password</label>
-                            <div class="pass-group">
-                                <input name="password" type="password" class="form-control pass-input">
-                                <span class="fas fa-eye toggle-password"></span>
-                            </div>
+                            <input name="password" type="password" class="form-control pass-input">
                         </div>
                         <div class="text-right">
                             <a class="forgot-link" href="forgot-password">Forgot Password ?</a>
