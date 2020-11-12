@@ -1,37 +1,91 @@
 @extends('layouts.app')
 @section('content')
-<!-- Page Content -->
-<div class="bg-pattern-style">
-    <div class="content">
-        <!-- Login Tab Content -->
-        <div class="account-content">
-            <div class="account-box">
-                <div class="login-right">
-                    <div class="login-header">
-                        <h3>Login <span>Mentoring</span></h3>
-                        <p class="text-muted">Access to our dashboard</p>
-                    </div>
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
-                        @error('email')
-                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                {{ $message }}
+<div class="ge-main-background">
+    <div class="container p-3">
+        <div class="row">
+            <div class="col-2">
+                <img src="/img/logo.png" class="img-responsive w-100" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="content">
+                    <div class="account-content">
+                        <div class="account-box border-0 bg-transparent">
+                            <div class="d-block w-100">
+                                <div class="row">
+                                    <div class="col-6 pr-1">
+                                        <button class="btn btn-sm btn-default btn-block ge-button-secondary">
+                                            Facebook
+                                        </button>
+                                    </div>
+                                    <div class="col-6 pl-1">
+                                        <button class="btn btn-sm btn-default btn-block ge-button-secondary">
+                                            Google
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="row mt-2">
+                                    <div class="col-6 pr-1">
+                                        <button class="btn btn-sm btn-default btn-block ge-button-secondary">
+                                            Twitch
+                                        </button>
+                                    </div>
+                                    <div class="col-6 pl-1">
+                                        <button class="btn btn-sm btn-default btn-block ge-button-secondary">
+                                            Discord
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
-                        @enderror
-                        <div class="form-group">
-                            <label class="form-control-label">Email Address</label>
-                            <input name="email" type="email" class="form-control">
+                            <div class="d-block w-100 p-0 my-4">
+                                <div class="center-separator">OR</div>
+                            </div>
+                            <div class="login-right">
+                                <form method="POST" action="{{ route('login') }}">
+                                    @csrf
+                                    @error('email')
+                                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                    <div class="form-group">
+                                        <input
+                                            name="email"
+                                            type="text"
+                                            class="ge-input-text bg-transparent form-control"
+                                            placeholder="Email Address"
+                                        >
+                                    </div>
+                                    <div class="form-group">
+                                        <input
+                                            name="password"
+                                            type="password"
+                                            class="ge-input-text bg-transparent form-control pass-input"
+                                            placeholder="Password"
+                                        >
+                                    </div>
+                                    <div class="text-right">
+                                        <a
+                                            class="ge-text-color font-weight-bold forgot-link"
+                                            href="forgot-password"
+                                        >
+                                            Forgot Password ?
+                                        </a>
+                                    </div>
+                                    <button class="btn ge-button-primary w-100" type="submit">Login</button>
+                                    <div class="text-white dont-have">Don’t have an account?
+                                        <a
+                                            class="ge-text-color font-weight-bold"
+                                            href="{{ route('register') }}"
+                                        >
+                                            Register
+                                            </a>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label class="form-control-label">Password</label>
-                            <input name="password" type="password" class="form-control pass-input">
-                        </div>
-                        <div class="text-right">
-                            <a class="forgot-link" href="forgot-password">Forgot Password ?</a>
-                        </div>
-                        <button class="btn btn-primary login-btn" type="submit">Login</button>
-                        <div class="text-center dont-have">Don’t have an account? <a href="{{ route('register') }}">Register</a></div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
