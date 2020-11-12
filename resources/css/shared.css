@@ -1,3 +1,7 @@
+body {
+    background-color: #021925 !important;
+}
+
 .ge-main-background {
     background-position: center;
     background-size: cover;
@@ -8,7 +12,6 @@
     opacity: 1;
     background: transparent linear-gradient(1deg, #021118 0%, var(--unnamed-color-003049) 100%) 0% 0% no-repeat padding-box;
     background: transparent linear-gradient(1deg, #021118 0%, #003049 100%) 0% 0% no-repeat padding-box;
-    opacity: 1;
 }
 
 .ge-text-color {
@@ -18,6 +21,20 @@
 .ge-button-primary:hover,
 .ge-button-secondary:hover {
     color:#fff
+}
+
+.ge-bg-color-secondary {
+    background-color: #D62828 !important;
+}
+
+.ge-bg-color-primary {
+    background-position: center;
+    background-size: cover;
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+    background: transparent linear-gradient(1deg, #021118 0%, var(--unnamed-color-003049) 100%) 0% 0% no-repeat padding-box;
+    background: transparent linear-gradient(1deg, #021118 0%, #003049 100%) 0% 0% no-repeat padding-box;
+    opacity: 1;
 }
 
 .ge-button-primary {
