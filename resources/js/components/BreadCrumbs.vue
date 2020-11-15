@@ -1,6 +1,6 @@
 <template>
     <div v-if="$route.meta.name" class="breadcrumb-bar border-0">
-        <div class="container-fluid">
+        <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-12 col-12">
                     <h2 class="font-weight-bold ge-text-color-secondary">{{ $route.meta.name }}</h2>
