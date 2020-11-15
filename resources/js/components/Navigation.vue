@@ -1,7 +1,7 @@
 <template>
     <header class="header bg-transparent">
         <div class="header-fixed">
-            <nav class="navbar border-0 bg-transparent navbar-expand-lg header-nav px-5">
+            <nav class="navbar border-0 bg-transparent navbar-expand-lg header-nav">
                 <div class="navbar-header">
                     <a id="mobile_btn" href="javascript:void(0);">
                         <span class="bar-icon">
@@ -55,19 +55,21 @@
 </template>
 
 <style scoped>
-    .navbar {
-        background-color: #021925 !important;
-    }
-    .main-nav li a {
-        color: #fff;
-        font-weight: 700;
-    }
+.navbar {
+    background-color: #021925 !important;
+    padding:0 6%;
+}
+.main-nav li a {
+    color: #fff;
+    font-weight: 700;
+}
 </style>
-<script>
-    export default {
-        name: "Navigation",
-        created () {
 
-        },
-    }
+<script>
+export default {
+    name: "Navigation",
+    created () {
+
+    },
+}
 </script>
