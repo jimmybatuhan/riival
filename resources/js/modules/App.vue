@@ -1,9 +1,9 @@
 <template>
     <div>
         <navigation />
-        <div  class="main-wrapper">
+        <div class="ge-main-background main-wrapper">
             <breadcrumbs />
-            <div class="content">
+            <div class="content ge-bg-color-primary">
                 <router-view></router-view>
             </div>
             <footer-template />
@@ -11,6 +11,11 @@
     </div>
 </template>
 
+<style scoped>
+    .content {
+        border-color:#000;
+    }
+</style>
 <script>
 
 import Navigation from "src/components/Navigation";
