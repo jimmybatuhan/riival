@@ -6,7 +6,7 @@ import VueRouter from "vue-router";
 import Routes from "src/constants/routes";
 
 import PageNotFound from "src/modules/PageNotFound";
-import Dashboard from "src/modules/Dashboard";
+import Dashboard from "src/modules/dashboard/Dashboard";
 
 Vue.use(VueRouter);
 
