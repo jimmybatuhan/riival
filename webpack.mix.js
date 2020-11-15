@@ -57,4 +57,4 @@ mix.copyDirectory('resources/img', 'public/img');
 
 mix.styles('resources/css/shared.css', 'public/css/shared.css');
 
-mix.js('resources/js/app.js', 'public/js').sourceMaps(false);;
+mix.js('resources/js/app.js', 'public/js').sourceMaps(false);
