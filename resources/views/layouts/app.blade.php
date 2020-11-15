@@ -10,8 +10,8 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <!-- Styles -->
-    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     <link href="{{ mix('css/theme.css') }}" rel="stylesheet">
+    <link href="{{ mix('css/shared.css') }}" rel="stylesheet">
 </head>
     {{-- Add here the routes that is not rendered by vue --}}
     @if(Route::is(['login', 'register']))
@@ -22,5 +22,7 @@
         @yield('vue-app')
     @endif
     <script src="{{ mix('js/theme.js') }}"></script>
-    <script src="{{ mix('js/app.js') }}"></script>
+    @if(!Route::is(['login', 'register']))
+        <script src="{{ mix('js/app.js') }}"></script>
+    @endif
 </html>
