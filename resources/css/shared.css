@@ -79,5 +79,5 @@ body {
 }
 
 .ge-text-color-secondary {
-    color: #F77F00;
+    color: #F77F00 !important;
 }

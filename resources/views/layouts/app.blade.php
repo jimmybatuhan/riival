@@ -3,17 +3,13 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'Riival E-Sport Coaching Platform') }}</title>
     <link rel="icon" type="image/png" href="/img/favicon.png">
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <!-- Styles -->
     <link href="{{ mix('css/theme.css') }}" rel="stylesheet">
-    <link href="{{ mix('css/shared.css') }}" rel="stylesheet">
+    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 </head>
     {{-- Add here the routes that is not rendered by vue --}}
     @if(Route::is(['login', 'register']))

@@ -55,6 +55,9 @@ mix.copyDirectory('resources/theme/plugins/fontawesome/webfonts', 'public/webfon
 
 mix.copyDirectory('resources/img', 'public/img');
 
-mix.styles('resources/css/shared.css', 'public/css/shared.css');
+mix.styles([
+    'resources/css/shared.css',
+    'resources/css/app.css',
+], 'public/css/app.css');
 
 mix.js('resources/js/app.js', 'public/js').sourceMaps(false);
