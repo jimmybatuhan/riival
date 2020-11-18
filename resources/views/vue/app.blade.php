@@ -3,7 +3,6 @@
 <body>
     <div id="app">
         <app
-
             csrf-token="{{ csrf_token() }}"
         />
     </div>

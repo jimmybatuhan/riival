@@ -6,12 +6,10 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'Riival E-Sport Coaching Platform') }}</title>
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/img/favicon.png">
     <!-- Styles -->
-    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     <link href="{{ mix('css/theme.css') }}" rel="stylesheet">
+    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 </head>
     {{-- Add here the routes that is not rendered by vue --}}
     @if(Route::is(['login', 'register']))
@@ -22,5 +20,7 @@
         @yield('vue-app')
     @endif
     <script src="{{ mix('js/theme.js') }}"></script>
-    <script src="{{ mix('js/app.js') }}"></script>
+    @if(!Route::is(['login', 'register']))
+        <script src="{{ mix('js/app.js') }}"></script>
+    @endif
 </html>

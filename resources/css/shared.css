@@ -1,0 +1,83 @@
+body {
+    background-color: #021925 !important;
+}
+
+.ge-main-background {
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+    opacity: 1;
+    background: transparent linear-gradient(1deg, #021118 0%, var(--unnamed-color-003049) 100%) 0% 0% no-repeat padding-box;
+    background: transparent linear-gradient(1deg, #021118 0%, #003049 100%) 0% 0% no-repeat padding-box;
+}
+
+.ge-text-color {
+    color: #D62828 !important;
+}
+
+.ge-button-primary:hover,
+.ge-button-secondary:hover {
+    color:#fff
+}
+
+.ge-bg-color-secondary {
+    background-color: #D62828 !important;
+}
+
+.ge-bg-color-primary {
+    background-position: center;
+    background-size: cover;
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+    background: transparent linear-gradient(1deg, #021118 0%, var(--unnamed-color-003049) 100%) 0% 0% no-repeat padding-box;
+    background: transparent linear-gradient(1deg, #021118 0%, #003049 100%) 0% 0% no-repeat padding-box;
+    opacity: 1;
+}
+
+.ge-button-primary {
+    border-radius: 0px;
+    color: #fff;
+    opacity: 1;
+    padding: 15px;
+    box-shadow: 0px 3px 6px #00000029;
+    text-transform: uppercase;
+    background: transparent linear-gradient(90deg, #D62828 0%, #F77F00 100%) 0% 0% no-repeat padding-box;
+}
+
+.ge-button-secondary {
+    background: #D62828 0% 0% no-repeat padding-box;
+    border-radius: 0px;
+    color: #fff;
+    opacity: 1;
+    padding: 15px;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.ge-input-text {
+    border-color: #526A79;
+    border-radius: 0px;
+    color: #fff !important;
+}
+
+.center-separator {
+    display: flex;
+    line-height: 1em;
+    color: gray;
+}
+
+.center-separator::before, .center-separator::after {
+    content: '';
+    display: inline-block;
+    flex-grow: 1;
+    margin: 0.5em 10px;
+    background: gray;
+    height: 1px;
+}
+
+.ge-text-color-secondary {
+    color: #F77F00 !important;
+}
