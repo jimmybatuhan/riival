@@ -10,8 +10,13 @@ class Video
 
     protected $guarded = ['id', 'created_at', 'update_at', 'deleted_at'];
 
-    public function __construct(){
-        $this->client = new Vimeo(config('vimeo.client_id'), config('vimeo.client_secret'), config('vimeo.access_token'));
+    public function __construct()
+    {
+        $this->client = new Vimeo(
+            config('vimeo.client_id'),
+            config('vimeo.client_secret'),
+            config('vimeo.access_token')
+        );
     }
 
     public function upload($file, $title, $attr = [])
