@@ -1,9 +1,9 @@
 <?php
 
-use App\Http\Controllers\CoachController;
-use App\Http\Controllers\CourseController;
-use App\Http\Controllers\GameController;
-use App\Http\Controllers\LessonController;
+// use App\Http\Controllers\CoachController;
+// use App\Http\Controllers\CourseController;
+// use App\Http\Controllers\GameController;
+// use App\Http\Controllers\LessonController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -30,3 +30,4 @@ Route::group([
         ]);
     Route::get('/{any}', 'MainController@index')->where('any', '.*');
 });
+

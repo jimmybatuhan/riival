@@ -14,8 +14,6 @@ class VimeoServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //include migration files to automigrate
-        $this->loadMigrationsFrom(__DIR__ . '/migrations');
 
         //include config file
         $this->mergeConfigFrom(__DIR__ . '/config.php', 'vimeo');
