@@ -19,7 +19,7 @@ class Video
         );
     }
 
-    public function upload($file, $title, $attr = [])
+    public function upload(File $file, string $title, array $attr = []): string
     {
 
         $filename = Storage::path($file->store('uploads'));
@@ -31,7 +31,7 @@ class Video
         return $uri;
     }
 
-    public function get($uri)
+    public function get(String $uri): array
     {
 
         $videoData = array();
@@ -43,6 +43,6 @@ class Video
             'embed_html' => $resp['body']['embed']['html'],
         ];
 
-        return $resp;
+        return $videoData;
     }
 }
