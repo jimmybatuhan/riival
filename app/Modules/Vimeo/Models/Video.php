@@ -31,7 +31,7 @@ class Video
         return $uri;
     }
 
-    public function get(String $uri): array
+    public function get(string $uri): array
     {
 
         $videoData = array();
