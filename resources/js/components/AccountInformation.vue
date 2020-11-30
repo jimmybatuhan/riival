@@ -25,7 +25,7 @@
             </div>
             <div class="row pt-4">
                 <div class="col-12">
-                    <h5 CLASS="font-weight-bold text-white ">BILLING INFORMATION</h5>
+                    <h5 class="font-weight-bold text-white ">BILLING INFORMATION</h5>
                     <hr class="account-info-hr">
                     <p class="text-white font-weight-bold">{{ email }}</p>
                 </div>
