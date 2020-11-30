@@ -23,7 +23,6 @@ class Video
     {
 
         $filename = Storage::path($file->store('uploads'));
-
         $uri = $this->client->upload($filename, array(
             "name" => $title
         ));
@@ -33,16 +32,14 @@ class Video
 
     public function get(string $uri): array
     {
-
         $videoData = array();
-
-        $resp = $this->client->request("/" . $uri, array(), 'GET');
         
+        $resp = $this->client->request("/" . $uri, array(), 'GET');
         $videoData = [
             'status' => $resp['body']['status'],
             'embed_html' => $resp['body']['embed']['html'],
         ];
-
+        
         return $videoData;
     }
 }

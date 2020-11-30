@@ -14,10 +14,6 @@ class VimeoServiceProvider extends ServiceProvider
      */
     public function register()
     {
-
-        //include config file
-        $this->mergeConfigFrom(__DIR__ . '/config.php', 'vimeo');
-
         $this->app->bind('vimeo', function () {
             return new Video();
         });
