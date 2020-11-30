@@ -33,20 +33,14 @@
 </template>
 
 <script>
+import AccountInformation from "src/components/AccountInformation";
 
-    import AccountInformation from "src/components/AccountInformation";
-
-    export default {
-        name: "Settings",
-
-        created() {
-
-        },
-
-        components: {
-            AccountInformation,
-        },
-    }
+export default {
+    name: "Settings",
+    components: {
+        AccountInformation,
+    },
+}
 </script>
 
 <style>
