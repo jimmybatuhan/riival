@@ -176,7 +176,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         Spatie\Permission\PermissionServiceProvider::class,
-        Modules\Vimeo\VimeoServiceProvider::class,
+        Vimeo\Laravel\VimeoServiceProvider::class
     ],
 
     /*
@@ -228,13 +228,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        'Vimeo' =>  Modules\Vimeo\Facades\Vimeo::class,
-    ],
-
-    'vimeo' => [
-        'client_id' => env('VIMEO_CLIENT', null),
-        'client_secret' => env('VIMEO_SECRET', null),
-        'access_token' => env('VIMEO_ACCESS', null),
+        'Vimeo' => Vimeo\Laravel\Facades\Vimeo::class,
     ],
 
 ];
