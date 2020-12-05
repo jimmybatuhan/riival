@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Http\Requests\LessonRequest;
 use App\Http\Requests\TagRequest;
 use App\Models\Course;
@@ -81,7 +80,7 @@ class LessonController extends Controller
     public function show(Lesson $lesson)
     {
         //temporary link for videos
-        $lesson->video_link = "https://player.vimeo.com/video/487576791?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=194487";
+        $lesson->video_link = "https://player.vimeo.com/video/487576791?badge=0&autopause=0&player_id=0&app_id=194487";
 
         return response()->json($lesson);
     }

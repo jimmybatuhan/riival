@@ -21,5 +21,4 @@ class LessonRequest extends FormRequest
             'course_id' => 'required|int|exists:courses,id',
         ];
     }
-
 }
