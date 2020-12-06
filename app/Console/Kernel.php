@@ -27,7 +27,7 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')->hourly();
 
-        $schedule->job(new VimeoStatusUpdater)->withoutOverlapping()->everyMinute();
+        $schedule->job(new VimeoStatusUpdater())->withoutOverlapping()->everyMinute();
     }
 
     /**
