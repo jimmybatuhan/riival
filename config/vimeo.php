@@ -59,4 +59,6 @@ return [
 
     ],
 
+    'player_link' => env('VIMEO_PLAYER_LINK', 'player-link'),
+
 ];

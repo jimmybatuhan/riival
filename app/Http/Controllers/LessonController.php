@@ -20,24 +20,21 @@ class LessonController extends Controller
     {
         $course = Course::findOrFail($request->course_id);
 
-        $videoUri = Vimeo::upload($request->video, [
-            "name" => $request->title,
-        ]);
-
+        $videoUri = "/videos/487576791";
+        
         $videoData = Vimeo::request($videoUri, [], 'GET');
 
-        //pull out the vimeo player link from the embed string
-        $videoEmbedLink = $videoData['body']['embed']['html'];
-        preg_match('/(src=["\'](.*?)["\'])/', $videoEmbedLink, $match);
-        $split = preg_split('/["\']/', $match[0]);
-        $videoLink = $split[1];
+        //pull out the vimeo video id
+        $videoDuration = $videoData['body']['duration'];
+        $videoId = str_replace("/videos/", "", $videoUri);
 
         $lesson = Lesson::create([
             'course_id' => $request->course_id,
             'title' => $request->title,
             'description' => $request->description,
-            'duration' => $request->duration,
-            'video_link' => $videoLink,
+            'duration' => $videoDuration,
+            'video_id' => $videoId,
+            'video_link' => "",
         ]);
 
         return response()->json();
@@ -78,9 +75,6 @@ class LessonController extends Controller
 
     public function show(Lesson $lesson): JsonResponse
     {
-        //temporary link for videos
-        $lesson->video_link = "https://player.vimeo.com/video/487576791?badge=0&autopause=0&player_id=0&app_id=194487";
-
         return response()->json($lesson);
     }
 }

@@ -14,6 +14,7 @@ class Lesson extends Model
     use SoftDeletes;
 
     protected $guarded = ['id', 'created_at', 'update_at', 'deleted_at'];
+    protected $appends = ['video_duration'];
 
     public function course(): BelongsTo
     {
@@ -23,5 +24,18 @@ class Lesson extends Model
     public function tags(): MorphToMany
     {
         return $this->morphToMany(Tag::class, 'taggable');
+    }
+
+    public function getVideoLinkAttribute(): string
+    {
+        return config('vimeo.player_link') . "/" . $this->video_id;
+    }
+
+    public function getVideoDurationAttribute(): string
+    {
+        $minutes = $this->duration % 60;
+        $hours = ($this->duration - $minutes) / 60;
+
+        return $hours . ":" . sprintf("%02d", $minutes);
     }
 }
