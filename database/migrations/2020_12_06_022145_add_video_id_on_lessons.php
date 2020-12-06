@@ -16,11 +16,12 @@ class AddVideoIdOnLessons extends Migration
 
         Schema::table('lessons', function (Blueprint $table) {
             $table->dropColumn('duration');
+            $table->dropColumn('video_link');
         });
 
         Schema::table('lessons', function (Blueprint $table) {
-            $table->string('video_id')->after('description')->nullable();
-            $table->integer('duration')->after('video_link')->nullable();
+            $table->string('video_id')->nullable(false);
+            $table->integer('duration')->nullable(false);
         });
     }
 
