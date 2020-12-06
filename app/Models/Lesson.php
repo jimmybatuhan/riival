@@ -14,7 +14,7 @@ class Lesson extends Model
     use SoftDeletes;
 
     protected $guarded = ['id', 'created_at', 'update_at', 'deleted_at'];
-    protected $appends = ['video_duration'];
+    protected $appends = ['video_duration', 'video_link'];
 
     public function course(): BelongsTo
     {
