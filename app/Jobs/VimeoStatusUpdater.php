@@ -30,7 +30,7 @@ class VimeoStatusUpdater implements ShouldQueue
             ->get();
 
         $lessons->each(function (Lesson $lesson) {
-            $video_data = Vimeo::request("/videos/{$lesson->video_id}" , [], 'GET');
+            $video_data = Vimeo::request("/videos/{$lesson->video_id}", [], 'GET');
             $status = $video_data['status'];
 
             if ($status === Response::HTTP_OK) {
