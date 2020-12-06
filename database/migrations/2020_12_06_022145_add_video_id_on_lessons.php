@@ -13,14 +13,11 @@ class AddVideoIdOnLessons extends Migration
      */
     public function up()
     {
-
         Schema::table('lessons', function (Blueprint $table) {
-            $table->dropColumn('duration');
-            $table->dropColumn('video_link');
+            $table->dropColumn(['duration', 'video_link']);
         });
-
         Schema::table('lessons', function (Blueprint $table) {
-            $table->string('video_id')->nullable(false);
+            $table->integer('video_id')->nullable(false);
             $table->integer('duration')->nullable(false);
         });
     }
@@ -32,13 +29,12 @@ class AddVideoIdOnLessons extends Migration
      */
     public function down()
     {
-
         Schema::table('lessons', function (Blueprint $table) {
-            $table->dropColumn('video_id');
-            $table->dropColumn('duration');
+            $table->dropColumn(['duration', 'video_id']);
         });
         Schema::table('lessons', function (Blueprint $table) {
-            $table->string('duration')->after('video_link');
+            $table->string('duration');
+            $table->string('video_link');
         });
     }
 }

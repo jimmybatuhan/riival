@@ -23,7 +23,6 @@ class LessonController extends Controller
         $videoUri = Vimeo::upload($request->video, [
             "name" => $request->title,
         ]);
-        
         $videoData = Vimeo::request($videoUri, [], 'GET');
 
         //pull out the vimeo video id
@@ -36,7 +35,6 @@ class LessonController extends Controller
             'description' => $request->description,
             'duration' => $videoDuration,
             'video_id' => $videoId,
-            'video_link' => "",
         ]);
 
         return response()->json();
