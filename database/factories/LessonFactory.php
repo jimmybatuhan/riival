@@ -11,7 +11,7 @@ $factory->define(Lesson::class, function (Faker $faker) {
         'course_id' => factory(Course::class),
         'title' => $faker->catchPhrase,
         'description' => $faker->paragraph,
-        'video_link' => $faker->url,
-        'duration' => $faker->time,
+        'video_id' => $faker->randomNumber($nbDigits = 8),
+        'duration' => $faker->randomNumber($nbDigits = 3),
     ];
 });

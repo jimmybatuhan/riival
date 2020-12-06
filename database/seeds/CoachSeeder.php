@@ -18,7 +18,9 @@ class CoachSeeder extends Seeder
                     $course->lessons()->createMany(
                         factory(Lesson::class, 5)->make([
                             'course_id' => $course->id,
-                        ])->toArray()
+                        ])
+                        ->makeHidden(['video_duration', 'video_link'])
+                        ->toArray()
                     );
                 });
             });
