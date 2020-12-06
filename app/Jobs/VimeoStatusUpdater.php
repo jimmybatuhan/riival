@@ -16,7 +16,7 @@ class VimeoStatusUpdater implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    public function handle()
+    public function handle(): void
     {
         $lessons = Lesson
             ::where('video_status', '!=', 'available')
