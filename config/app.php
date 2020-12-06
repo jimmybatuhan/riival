@@ -176,7 +176,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         Spatie\Permission\PermissionServiceProvider::class,
-        Vimeo\Laravel\VimeoServiceProvider::class
+        Vimeo\Laravel\VimeoServiceProvider::class,
     ],
 
     /*
