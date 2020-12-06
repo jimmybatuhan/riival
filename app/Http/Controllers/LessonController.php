@@ -7,6 +7,7 @@ use App\Http\Requests\TagRequest;
 use App\Models\Course;
 use App\Models\Lesson;
 use Illuminate\Http\JsonResponse;
+use Vimeo;
 
 class LessonController extends Controller
 {
@@ -19,14 +20,25 @@ class LessonController extends Controller
     {
         $course = Course::findOrFail($request->course_id);
 
+        $videoUri = Vimeo::upload($request->video, [
+            "name" => $request->title,
+        ]);
+
+        $videoData = Vimeo::request($videoUri, [], 'GET');
+
+        //pull out the vimeo player link from the embed string
+        $videoEmbedLink = $videoData['body']['embed']['html'];
+        preg_match('/(src=["\'](.*?)["\'])/', $videoEmbedLink, $match);
+        $split = preg_split('/["\']/', $match[0]);
+        $videoLink = $split[1];
+
         $lesson = Lesson::create([
+            'course_id' => $request->course_id,
             'title' => $request->title,
             'description' => $request->description,
             'duration' => $request->duration,
-            // TODO store video information of the lesson
+            'video_link' => $videoLink,
         ]);
-
-        $course->lessons()->attach($lesson);
 
         return response()->json();
     }
@@ -64,8 +76,11 @@ class LessonController extends Controller
         //
     }
 
-    public function show(Lesson $lesson)
+    public function show(Lesson $lesson): JsonResponse
     {
-        //
+        //temporary link for videos
+        $lesson->video_link = "https://player.vimeo.com/video/487576791?badge=0&autopause=0&player_id=0&app_id=194487";
+
+        return response()->json($lesson);
     }
 }

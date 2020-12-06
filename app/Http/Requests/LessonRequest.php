@@ -17,6 +17,7 @@ class LessonRequest extends FormRequest
             'title' => 'required|bail|string',
             'description' => 'required|bail|string',
             'duration' => 'required|bail|numeric',
+            'video' => 'required|bail|file',
             'course_id' => 'required|int|exists:courses,id',
         ];
     }
