@@ -20,7 +20,9 @@ class LessonController extends Controller
     {
         $course = Course::findOrFail($request->course_id);
 
-        $videoUri = "/videos/487576791";
+        $videoUri = Vimeo::upload($request->video, [
+            "name" => $request->title,
+        ]);
         
         $videoData = Vimeo::request($videoUri, [], 'GET');
 
