@@ -1,13 +1,11 @@
 <template>
-    <div class="card video-box flex-fill">
+    <div class="card video-box flex-fill" @click="$router.push(videoLink)">
         <img alt="Card Image" src="/img/dota23@2x.png" class="card-img-top">
         <div class="card-header px-3">
-            <h5 class="card-title pt-1 font-weight-bold text-white mb-0">Card with image and links</h5>
+            <h5 class="card-title pt-1 font-weight-bold text-white mb-0">{{ title }}</h5>
         </div>
         <div class="card-body px-3 pt-1">
-            <p class="card-text text-secondary">Some quick example text to build on the card title and make up the bulk
-                of the
-                card's content.</p>
+            <p class="card-text text-secondary">{{ description }}</p>
             <a class="card-link font-weight-bold ge-text-color-secondary" href="#">Advanced</a>
             <a class="card-link font-weight-bold ge-text-color-secondary" href="#">Offlane</a>
             <a class="card-link font-weight-bold ge-text-color-secondary" href="#">Farming</a>
@@ -18,6 +16,7 @@
 <style scoped>
 .video-box {
     border: 1px solid black !important;
+    cursor: pointer;
 }
 
 .video-box>.card-header {
@@ -33,16 +32,24 @@
 </style>
 
 <script>
-import VideoCard from "src/components/VideoCard";
+"use strict";
+
+import { toKebabCase } from "src/helpers/string";
 
 export default {
-    name: "Dashboard",
-
-    components: {
-        VideoCard,
-    },
+    name: "VideoCard",
 
     props: {
+        lessonId: {
+            type: Number,
+            required: true,
+        },
+
+        gameTitle: {
+            type: String,
+            required: true,
+        },
+
         title: {
             type: String,
             required: true,
@@ -59,9 +66,15 @@ export default {
         },
 
         tags: {
-            type: Array,
-            required: true,
-        }
-    }
+            type: [String, Array],
+            default:  () => [],
+        },
+    },
+
+    computed: {
+        videoLink : function () {
+            return `games/${toKebabCase(this.gameTitle)}/video/${this.lessonId}`;
+        },
+    },
 }
 </script>

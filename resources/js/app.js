@@ -2,14 +2,13 @@
 
 import Vue from "vue";
 import Vuex from "vuex";
-// import Echo from 'laravel-echo';
+import Axios from "src/config/http";
+import Router from "src/config/router";
 
-import axios from "axios";
-
-import router from "src/config/router";
+import Global from "src/mixins/global";
 import App from "src/modules/App";
 
-import global from "src/mixins/global";
+// import Echo from 'laravel-echo';
 
 // window.Pusher = require('pusher-js');
 // window.Echo = new Echo({
@@ -22,16 +21,13 @@ import global from "src/mixins/global";
 window.Vue = Vue;
 
 Vue.use(Vuex);
-Vue.mixin(global);
+Vue.mixin(Global);
 
-let token = document.head.querySelector('meta[name="csrf-token"]');
-axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content
-
-Vue.prototype.$axios = axios;
-Vue.prototype.$csrf = token.content;
+Vue.prototype.$axios = Axios;
+Vue.prototype.$csrf = document.head.querySelector('meta[name="csrf-token"]').content;
 
 const app = new Vue({
-    router,
+    router: Router,
     el: '#app',
     render: h => h(App),
 });

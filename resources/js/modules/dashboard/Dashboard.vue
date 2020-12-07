@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="container">
+        <!-- <div class="container">
             <div class="row mb-2">
                 <div class="col-12">
                     <h2 class="text-white font-weight-bold">New Videos</h2>
@@ -17,7 +17,7 @@
                     <video-card />
                 </div>
             </div>
-        </div>
+        </div> -->
         <analysis />
         <div class="container mt-5">
             <div class="row mb-2">
@@ -26,19 +26,18 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-4">
-                    <video-card />
-                </div>
-                <div class="col-4">
-                    <video-card />
-                </div>
-                <div class="col-4">
-                    <video-card />
+                <div class="col-4" v-for="(video, index) in newVideos" :key="`video${index}_${_uid}`">
+                    <video-card
+                        :description="video.description"
+                        :game-title="video.gameTitle"
+                        :lesson-id="video.lessonId"
+                        :title="video.title"
+                    />
                 </div>
             </div>
         </div>
         <discord-server-banner />
-        <div class="container mt-5">
+        <!-- <div class="container mt-5">
             <div class="row mb-2">
                 <div class="col-12">
                     <h2 class="text-white font-weight-bold">More Lessongs</h2>
@@ -55,7 +54,7 @@
                     <video-card />
                 </div>
             </div>
-        </div>
+        </div> -->
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12 py-5">
@@ -89,6 +88,24 @@ import DiscordServerBanner from "./DiscordServerBanner";
 
 export default {
     name: "Dashboard",
+
+    data () {
+        return {
+            newVideos: [],
+        };
+    },
+
+    created () {
+       this.$axios.get('ajax/lessons/newest').then( result => {
+           this.newVideos = result;
+       });
+    },
+
+    methods: {
+        fetchNewestLessons () {
+
+        },
+    },
 
     components: {
         Analysis,

@@ -19,15 +19,27 @@ use Illuminate\Support\Facades\Route;
 */
 Auth::routes();
 
+/**
+ * If your route will be called via AJAX add that in this group.
+ */
+Route::prefix('ajax')->middleware([
+    'ajax-only',
+])->group(function () {
+        Route::prefix('lessons')->group(function () {
+            Route::get('/newest', 'LessonController@getNewest');
+            Route::get('/{lesson}', 'LessonController@show');
+        });
+
+    Route::prefix('course')->group(function () {
+        Route::post('{course}/lesson', 'LessonController@store');
+    });
+});
+
 Route::group([
     'middleware' => ['auth'],
 ], function () {
-    Route::resources([
-        'coaches' => CoachController::class,
-        'courses' => CourseController::class,
-        'lessons' => LessonController::class,
-        'game' => GameController::class,
-        ]);
-    Route::get('/{any}', 'MainController@index')->where('any', '.*');
+  Route::get('/{any}', 'MainController@index')->where('any', '.*');
 });
+
+
 

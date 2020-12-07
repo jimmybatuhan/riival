@@ -14,11 +14,9 @@ class LessonRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required|bail|string',
             'description' => 'required|bail|string',
-            'duration' => 'required|bail|numeric',
+            'title' => 'required|bail|string',
             'video' => 'required|bail|file',
-            'course_id' => 'required|int|exists:courses,id',
         ];
     }
 }
