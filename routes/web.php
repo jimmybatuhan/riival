@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Auth::routes();
 
 Route::group([
@@ -27,7 +28,7 @@ Route::group([
         'courses' => CourseController::class,
         'lessons' => LessonController::class,
         'game' => GameController::class,
-        ]);
+    ]);
     Route::get('/{any}', 'MainController@index')->where('any', '.*');
 });
 
