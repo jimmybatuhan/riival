@@ -103,7 +103,7 @@ export default {
             self.$axios.get('/courses', {
                 params: {
                     keyword: self.keyword,
-                }
+                },
             })
             .then(resp => {
                 self.courses = resp.data.data;
