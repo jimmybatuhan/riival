@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 class CourseController extends Controller
 {
 
-    const COURSE_PER_PAGE = 5;
+    private const COURSE_PER_PAGE = 5;
 
     public function index(Request $request): JsonResponse
     {
