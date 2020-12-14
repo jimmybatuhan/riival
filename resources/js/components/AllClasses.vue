@@ -87,11 +87,9 @@ export default {
     },
     watch: {
         keyword: function (val) {
-            let self = this;
-
             if (! this.awaitingSearch) {
                 setTimeout(() => {
-                    self.getCourses();
+                    this.getCourses();
                     this.awaitingSearch = false;
                 }, SEARCH_DEBOUNCE_DELAY);
             }
