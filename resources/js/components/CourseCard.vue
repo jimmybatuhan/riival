@@ -8,7 +8,7 @@
             <div class="container mt-3">
                 <div class="row">
                     <div class="col-12 col-md-7">
-                        <p class="course-name">{{name}}</p>
+                        <p class="course-name">{{ name }}</p>
                     </div>
                     <div class="col-12 col-md-5 course-button-box">
                         <button class="btn ge-button-primary btn-block" v-bind:href="link"><span class="button-text">WATCH NOW →</span></button>

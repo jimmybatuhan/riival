@@ -10,15 +10,18 @@ use Illuminate\Http\Request;
 
 class CourseController extends Controller
 {
+
+    const COURSE_PER_PAGE = 5;
+
     public function index(Request $request): JsonResponse
     {
         $keyword = $request->keyword;
         $courses = Course::where('is_active', true)
-        ->when($keyword, function ($query) use ($keyword) {
-            return $query->where("title", "LIKE", "%$keyword%");
-        })
-        ->with('coachProfile')
-        ->simplePaginate(5);
+            ->when($keyword, function ($query) use ($keyword) {
+                return $query->where("title", "LIKE", "%$keyword%");
+            })
+            ->with('coachProfile')
+            ->simplePaginate(self::COURSE_PER_PAGE);
 
         return response()->json($courses);
     }

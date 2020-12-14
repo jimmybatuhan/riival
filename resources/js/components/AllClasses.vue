@@ -23,12 +23,11 @@
             </div>
         </div>
         <div class="row mt-3">
-            <div class="col-12 col-md-4" v-for="course in courses">
+            <div class="col-12 col-md-4" v-for="course in courses" :key ="course.id">
                 <course-card
-                    v-bind:key ="course.id"
-                    v-bind:title = "course.title"
-                    v-bind:name = "course.coach_profile.in_game_name"
-                    v-bind:image = "course.thumbnail_url"
+                    :title = "course.title"
+                    :name = "course.coach_profile.in_game_name"
+                    :image = "course.thumbnail_url"
                 />
             </div>
         </div>
@@ -69,50 +68,49 @@
 <script>
 
 import CourseCard from "src/components/CourseCard";
+import { SEARCH_DEBOUNCE_DELAY } from "src/constants/app";
 
 export default {
     name: "Classes",
     components: {
         CourseCard,
     },
-    data() {
+    data () {
         return {
             courses: [],
             keyword: "",
             awaitingSearch: false,
         }
     },
-    mounted() {
-        var self = this;
-
-        self.getCourses();
+    mounted () {
+        this.getCourses();
     },
     watch: {
         keyword: function (val) {
-            var self = this;
+            let self = this;
 
-            if (!this.awaitingSearch) {
+            if (! this.awaitingSearch) {
                 setTimeout(() => {
                     self.getCourses();
                     this.awaitingSearch = false;
-                }, 1000); // 1 sec delay
+                }, SEARCH_DEBOUNCE_DELAY);
             }
             this.awaitingSearch = true;
         },
     },
     methods: {
-        getCourses: function() {
-            var self = this;
+        getCourses: function () {
+            let self = this;
 
             self.$axios.get('/courses', {
                 params: {
-                    keyword: self.keyword
+                    keyword: self.keyword,
                 }
             })
             .then(resp => {
                 self.courses = resp.data.data;
             })
         },
-    }
+    },
 }
 </script>
