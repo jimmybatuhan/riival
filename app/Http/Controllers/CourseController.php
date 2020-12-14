@@ -4,37 +4,37 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CourseRequest;
 use App\Http\Requests\TagRequest;
-use App\Models\CoachProfile;
 use App\Models\Course;
-use App\Models\Game;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class CourseController extends Controller
 {
-    public function index(Request $request)
-    {
-        $coaches = CoachProfile::when($request->coach_id, function ($query) use ($request) {
-            return $query->where("coach_id", $request->coach_id);
-        })
-        ->when($request->game, function ($query) use ($request) {
-            $game = Game::getGameByName($request->game);
-            return $query->where("game_id", $game->id);
-        })
-        ->get();
 
-        return response()->json($coaches->courses);
+    private const COURSE_PER_PAGE = 5;
+
+    public function index(Request $request): JsonResponse
+    {
+        $keyword = $request->keyword;
+        $courses = Course::where('is_active', true)
+            ->when($keyword, function ($query) use ($keyword) {
+                return $query->where("title", "LIKE", "%$keyword%");
+            })
+            ->with('coachProfile')
+            ->simplePaginate(self::COURSE_PER_PAGE);
+
+        return response()->json($courses);
     }
 
-    public function store(CourseRequest $request, CoachProfile $coach_profile): JsonResponse
+    public function store(CourseRequest $request): JsonResponse
     {
         $course = Course::create([
             'title' => $request->title,
             'description' => $request->description,
             'language' => $request->language,
+            'thumbnail_url' => $request->thumbnail_url,
+            'coach_profile_id' => $request->coach_profile_id,
         ]);
-
-        $coach_profile->courses()->attch($course);
 
         return response()->json();
     }
@@ -73,7 +73,7 @@ class CourseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Course $course)
     {
         //
     }

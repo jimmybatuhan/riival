@@ -1,103 +1,45 @@
 <template>
     <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="search-box">
-                    <form action="search">
-                        <div class="input-group mb-2">
-                            <div class="input-group-prepend">
-                                <div class="input-group-text">
-                                    <img src="/img/search-submit.png">
-                                </div>
-                            </div>
-                            <input type="text" class="form-control" id="search-input" placeholder="SEARCH">
-                        </div>
-                    </form>
-                    <hr class="search-hr">
-                </div>
-            </div>
-        </div>
+        <all-classes />
         <div class="container mt-3">
             <div class="row">
                 <div class="col-12">
-                    <h5 class="coach-title pt-1 font-weight-bold text-white mb-0">ALL CLASSES</h5>
+                    <h5 class="course-title pt-1 font-weight-bold text-white mb-0">MATCHING LESSONS</h5>
                 </div>
             </div>
         </div>
         <div class="container mt-3">
             <div class="row">
                 <div class="col-12 col-md-4">
-                    <coach-card />
+                    <course-card />
                 </div>
                 <div class="col-12 col-md-4">
-                    <coach-card />
+                    <course-card />
                 </div>
                 <div class="col-12 col-md-4">
-                    <coach-card />
+                    <course-card />
                 </div>
             </div>
             <div class="row">
                 <div class="col-12 col-md-4">
-                    <coach-card />
+                    <course-card />
                 </div>
                 <div class="col-12 col-md-4">
-                    <coach-card />
+                    <course-card />
                 </div>
                 <div class="col-12 col-md-4">
-                    <coach-card />
+                    <course-card />
                 </div>
             </div>
             <div class="row">
                 <div class="col-12 col-md-4">
-                    <coach-card />
+                    <course-card />
                 </div>
                 <div class="col-12 col-md-4">
-                    <coach-card />
+                    <course-card />
                 </div>
                 <div class="col-12 col-md-4">
-                    <coach-card />
-                </div>
-            </div>
-        </div>
-        <div class="container mt-3">
-            <div class="row">
-                <div class="col-12">
-                    <h5 class="coach-title pt-1 font-weight-bold text-white mb-0">MATCHING LESSONS</h5>
-                </div>
-            </div>
-        </div>
-        <div class="container mt-3">
-            <div class="row">
-                <div class="col-12 col-md-4">
-                    <coach-card />
-                </div>
-                <div class="col-12 col-md-4">
-                    <coach-card />
-                </div>
-                <div class="col-12 col-md-4">
-                    <coach-card />
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12 col-md-4">
-                    <coach-card />
-                </div>
-                <div class="col-12 col-md-4">
-                    <coach-card />
-                </div>
-                <div class="col-12 col-md-4">
-                    <coach-card />
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12 col-md-4">
-                    <coach-card />
-                </div>
-                <div class="col-12 col-md-4">
-                    <coach-card />
-                </div>
-                <div class="col-12 col-md-4">
-                    <coach-card />
+                    <course-card />
                 </div>
             </div>
         </div>
@@ -105,16 +47,16 @@
 </template>
 
 <style scoped>
-.coach-box {
+.course-box {
     border: none !important;
     box-shadow: 0px 3px 6px #00000029;
     background: #021925 0% 0% no-repeat padding-box;
 }
-.coach-box > .card-header {
+.course-box > .card-header {
     border: none !important;
     background: #021925;
 }
-.coach-title {
+.course-title {
     font-size: 18px;
     text-transform: Uppercase;
 }
@@ -137,12 +79,14 @@
 
 <script>
 
-import CoachCard from "src/components/CoachCard";
+import AllClasses from "src/components/AllClasses";
+import CourseCard from "src/components/CourseCard";
 
 export default {
     name: "Classes",
     components: {
-        CoachCard,
+        CourseCard,
+        AllClasses,
     },
 }
 </script>

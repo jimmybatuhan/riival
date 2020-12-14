@@ -7,6 +7,7 @@ use App\Models\CoachProfile;
 use App\Models\Lesson;
 use App\Models\Tag;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOneThrough;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
@@ -18,9 +19,9 @@ class Course extends Model
 
     protected $guarded = ['id', 'created_at', 'update_at', 'deleted_at'];
 
-    public function coach(): HasOneThrough
+    public function coachProfile(): BelongsTo
     {
-        return $this->hasOneThrough(Coach::class, CoachProfile::class);
+        return $this->belongsTo(CoachProfile::class);
     }
 
     public function lessons(): HasMany
